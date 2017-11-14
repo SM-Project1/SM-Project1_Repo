@@ -215,9 +215,9 @@ PROMPT #######################################################################
 SELECT a.grantee "GRANTEE", a.admin_option "ADMIN", a.default_role "DEFAULT", b.account_status "ACCOUNT_STATUS"
 FROM dba_role_privs a, dba_users b
 WHERE a.grantee=b.username
-AND grantee NOT IN ('SYS','SYSTEM')
-AND grantee NOT IN (SELECT role FROM dba_roles)
-AND granted_role='DBA'
+AND grantee IN ('SYS','SYSTEM')
+AND grantee IN (SELECT role FROM dba_roles)
+AND granted_role='HR'
 /
 PROMPT #######################################################################
 PROMPT Check for roles with DBA privs
